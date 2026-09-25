@@ -7,6 +7,10 @@
 \usepackage{url}
 \usepackage[colorlinks=false, pdfstartview=FitV, citecolor=black, urlcolor=black]{hyperref}
 \usepackage{cite}
+% tighter bibliography: no extra space between references
+\makeatletter
+\renewcommand{\@openbib@code}{\setlength{\itemsep}{1pt}\setlength{\parsep}{0pt}}
+\makeatother
 %\usepackage[backend=biber]{biblatex}
 %\addbibresource{publications.bib}
 
@@ -25,53 +29,56 @@
     \begin{minipage}[t]{0.7\textwidth}
         \faIcon{envelope}
         \href{mailto: taylla.theodoro@czbiohub.org}
-        {\underline{taylla.theodoro@biohub.org}} \\
+        {\underline{taylla.theodoro@czbiohub.org}} \\
         \faIcon{linkedin}
         \href{https://www.linkedin.com/in/taylla-theodoro/}{\underline{taylla-theodoro}} 
     \end{minipage}
    \vspace{-0.2cm}
-        \section{\mysidestyle Research and Work Experience} 
-        \textbf{\href{https://www.czbiohub.org/comp-micro/people/}{Computational Imaging - Biohub
-}} \hfill \textsl{Aug 2024 -- present}  \\
-       \textit{R\&D Engineer} - 
-       Developing high-throughput image analysis and smart microscopy solutions for dynamic imaging. Recent work on registration, tracking, and segmentation of infected cells reported in~\cite{pradeep2024contrastivelearningcellstate,hirata2025mapping, hirata-miyasaki2025embedding} tracking of live dynamics samples during microscopy imaging acquisition~\cite{theodoro2026dynatrack}, and evaluation of dynamic 3D virtual staining of live cells~\cite{kalinin2026dynacell}.
+        \section{\mysidestyle Research and Work Experience}
+        \textbf{\href{https://biohub.org/comp-imaging/people/}{Computational Imaging - Chan Zuckerberg Biohub SF}} \hfill \textsl{Aug 2024 -- present}  \\
+        \textit{R\&D Engineer} - Microscope automation and high-throughput analysis of dynamic live-cell imaging.
+        \begin{list2}
+            \item Built DynaTrack, a label-agnostic smart-tracking loop that runs phase reconstruction and virtual staining during acquisition to follow zebrafish neuromasts with gentle bright-field imaging; kept 73 of 75 neuromasts in view for up to 70.5\,h, versus $\sim$12\,h with classical imaging~\cite{theodoro2026dynatrack}.
+            \item Curated the shared 5D (3D+t, multi-channel) live-cell dataset behind DynaCLR and DynaCell: registration, virtual-staining-based nuclear segmentation, joint segmentation and tracking with Ultrack, and OME-Zarr organization of infected and drug-perturbed cells. This dataset underpins DynaCLR's infection-state classifier (F1 98.4)~\cite{pradeep2024contrastivelearningcellstate,hirata2025mapping,hirata-miyasaki2025embedding}.
+            \item Curated and registered the DynaCell benchmark for dynamic 3D virtual staining: paired label-free and fluorescence volumes of A549 cells across four organelles and three infection conditions, acquired on the Mantis microscope~\cite{kalinin2026dynacell}.
+        \end{list2}
+        \vspace{-0.2cm}
+
+        \textbf{\href{https://lids.ic.unicamp.br/people}{LIDS - Laboratory of Image Data Science, UNICAMP}} \hfill \textsl{Aug 2021 -- 2025}  \\
+        \textit{Graduate Researcher} - Automated detection of Early Contrast Enhancement (ECE), an MRI biomarker of pleural mesothelioma, in 4D (3D+t) DCE-MRI of the thorax.
+        \begin{list2}
+            \item Built Meso-Regions, an open-source (GPL-3) five-stage pipeline: ANTs motion correction, image-foresting-transform pleural extraction, SLIC/DISF supervoxel partitioning, per-supervoxel enhancement curves, and rule-based ECE detection. Flags suspicious regions with no manual ROI placement; published at IEEE ISBI 2026~\cite{11515662,theodoro2025mesothelioma}.
+            \item Trained a PyTorch U-Net with diffusion-based data augmentation to segment the pleural region containing the tumor; co-authored a superpixel tutorial at SIBGRAPI and the iMig imaging review~\cite{9643120,ARMATO2024107832}.
+        \end{list2}
+        \vspace{-0.2cm}
+
+        \textbf{\href{https://www.predictmeso.com/members/}{PREDICT-Meso Network, University of Glasgow}} \hfill \textsl{Feb 2023 -- Jul 2023}\\
+        \textit{Visiting Researcher} - Built MISe, an interactive segmentation tool for 4D DCE-MRI, and used it to produce ground-truth pleural labels for the PREDICT-Meso cohort~\cite{mise2023}.
         \vspace{-0.3cm}
 
-       \textbf{\href{https://lids.ic.unicamp.br/people}{LIDS - Laboratory of Image Data Science}} \hfill \textsl{Aug 2021 -- present}  \\
-       \textit{Graduate Researcher} - Developing an automatic detector of image descriptors in 4D (3D+t) DCE-MRI of the thorax for the diagnosis of malignant pleural mesothelioma cancer. Using pytorch Unet and diffusion models for data augmentation, we perform automatic segmentation of the region containing the tumor. Within it, we detect possible tumors using a graph-based supervoxel algorithm~\cite{11515662, theodoro2025mesothelioma,9643120,ARMATO2024107832}.
+        \textbf{Peapply \& Co.} \hfill \textsl{May 2021 -- Oct 2021}\\
+        \textit{Data Engineer} - Designed and built pipelines for collecting, storing, and analyzing data at scale in PySpark and SQL.
         \vspace{-0.3cm}
 
-        \textbf{\href{https://www.predictmeso.com/members/}{PREDICT-Meso Network}} \hfill \textsl{Feb 2023 -- Jul 2023}\\
-         \textit{Visiting Researcher} - Developed an interactive segmentation tool for 4D DCE-MR images of patients suspected of Malignant Pleural Mesothelioma for label ground truth purposes~\cite{mise2023}.
-        \vspace{-0.3cm}
-        
         \textbf{\href{https://sites.google.com/view/labiii/members/current?authuser=0}{LIII - Lab of Image, Intelligence and Innovation}} \hfill \textsl{Jan 2020 -- Apr 2020}\\
-         \textit{Visiting Student Researcher} - Learned to use CNN in TensorFlow for MRI spine segmentation.
+        \textit{Visiting Student Researcher} - CNN-based MRI spine segmentation in TensorFlow.
         \vspace{-0.3cm}
-        
-        \textbf{\href{https://www.linkedin.com/company/la2i---laborat-rio-de-automa-o-e-instrumenta-o-inteligente/}{LAB2I - Automation and Intelligent Instrumentation Laboratory}}  \hfill \textsl{Aug 2017-Dec 2019}\\
-         \textit{Undergraduate Research Internship} - Developed an embedded system with sensors to monitor the parameters of temperature and electric current of water treatment by electrocoagulation process~\cite{taylla2018,taylla2019}.
-         
-        \vspace{-0.3cm}
-        
-        \textbf{Peapply \& Co.} \textit{Data Engineer}  \hfill \textsl{May 2021 -- Oct 2021}\\
-         Designing and building systems for collecting, storing, and analyzing data at scale in Pyspark and SQL.
+
+        \textbf{\href{https://www.linkedin.com/company/la2i---laborat-rio-de-automa-o-e-instrumenta-o-inteligente/}{LAB2I - Automation and Intelligent Instrumentation Laboratory}}  \hfill \textsl{Aug 2017 -- Dec 2019}\\
+        \textit{Undergraduate Research Intern} - Built an embedded sensing system to monitor temperature and electric current in electrocoagulation water treatment~\cite{taylla2018,taylla2019}.
     \vspace{-0.2cm}
-       \section{\mysidestyle Education}     
-        \textbf{University of Campinas} SP, BR  \hfill \textsl{Aug 2021 - Present}\\
-           \textit{M.Sc in Computer Science}
+       \section{\mysidestyle Education}
+        \textbf{University of Campinas (UNICAMP)} SP, BR  \hfill \textsl{Aug 2021 -- 2025}\\
+           \textit{M.Sc. in Computer Science}, GPA 4.0/4.0
            \begin{list2}
-            \item Candidacy topic: Towards Detection of Malignant Mesothelioma from 4D Magnetic Resonance Images of the Thorax~\cite{theodoro2025mesothelioma}
-            % \item Advisor: Dr. Alexandre Xavier Falcao   
-            \item GPA: 4.0/4.0
+            \item Thesis: Towards Automatic Detection of Pleural Mesothelioma Biomarker in 4D Dynamic MR Imaging~\cite{theodoro2025mesothelioma}
            \end{list2}
-        \textbf{State University of Londrina} PR, BR  \hfill \textsl{Apr 2016 - Mar 2021 }\\
-           \textit{B.Sc in Electrical Engineering}
+        \textbf{State University of Londrina (UEL)} PR, BR  \hfill \textsl{Apr 2016 -- Mar 2021}\\
+           \textit{B.Sc. in Electrical Engineering}
            \begin{list2}
-            \item Dissertation: Study of Deep Learning and its Application to Medical Images\\
-            % \item Advisor: Dr. Francisco Granzieira Junior    
+            \item Thesis: Study of Deep Learning and its Application to Medical Images
            \end{list2}
-        
+
      \vspace{-0.3cm}
     \section{\mysidestyle Advanced Training}
     
@@ -82,7 +89,7 @@
       \textbf{Graduate} Digital Image Processing, Image Analysis, Parallelization and Optimization Algorithms for Machine Learning Graphs, Machine Learning and Pattern Recognition,  Deep Learning, Graph Algorithms.
     \vspace{-0.3cm}
 
-      \textbf{Undergraduate} Digital Circuits, Analog and Digital Electronics, C programming, Embedded Systems, Digital Signal Processing, Modern Programming Languages, Communication Principles, Electronic Instrumentation, Microelectronics (ARM), Biomedical Engineering, VHDL.\\
+      \textbf{Undergraduate} Digital Circuits, Analog and Digital Electronics, C programming, Embedded Systems, Digital Signal Processing, Modern Programming Languages, Communication Principles, Electronic Instrumentation, Microelectronics (ARM), Biomedical Engineering, VHDL.
        \vspace{-0.3cm}
 
      \section{\mysidestyle Teaching Assistant}
@@ -93,7 +100,7 @@
         Techninas - Girls in Tech \hfill \textsl{2018 - 2020}\\
         Student Branch IEEE UEL \hfill \textsl{2016 - 2018}\\
         Women in Engineering IEEE UEL \hfill \textsl{2016 - 2018}\\
-    \vspace{0.3cm}
+    \vspace{-0.3cm}
       \section{\mysidestyle Conference Presentation}
    
         \textbf{ISBI 2026 - IEEE International Symposium on Biomedical Imaging} Meso-Regions: 4D Segmentation of Early Contrast Enhancement Biomarkers for Pleural Mesothelioma Diagnosis\cite{11515662}.\\ 
