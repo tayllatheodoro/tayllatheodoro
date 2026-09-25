@@ -202,7 +202,7 @@
 \ExecuteOptions{overlapped,centered}
 \ProcessOptions\relax
 
-\nofiles	     % resume's don't need .aux files
+%\nofiles	     % disabled: the .aux file is required for \cite/\bibliography (BibTeX) to work
 
 
 \newtoks\tabular@text		    % holds the current list being processed
