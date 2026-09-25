@@ -19,110 +19,120 @@
 \begin{resume}
 
 
-% === PERSONAL INFO ===
+% === PROFILE ===
+    \vspace{0.1cm}
+    R\&D engineer in computational imaging, with a background in electrical engineering and medical image analysis. I build tools that let microscopes follow living samples on their own, and pipelines that turn large time-lapse datasets into something biologists can actually use. Before that, I spent four years on 4D MRI of the thorax, trying to help radiologists spot mesothelioma earlier.
 
+% === PERSONAL INFO ===
+    \vspace{-0.2cm}
     \section{\mysidestyle Contact \\Information}
-    \begin{minipage}[t]{0.7\textwidth}
-        Computational Imaging \\
-        Biohub SF\\
+    \begin{minipage}[t]{0.45\textwidth}
+        Computational Imaging Platform \\
+        Chan Zuckerberg Biohub, San Francisco, CA\\
     \end{minipage}\hfill
-    \begin{minipage}[t]{0.7\textwidth}
+    \begin{minipage}[t]{0.5\textwidth}
         \faIcon{envelope}
-        \href{mailto: taylla.theodoro@czbiohub.org}
-        {\underline{taylla.theodoro@czbiohub.org}} \\
+        \href{mailto:taylla.theodoro@czbiohub.org}{\underline{taylla.theodoro@czbiohub.org}} \\
         \faIcon{linkedin}
-        \href{https://www.linkedin.com/in/taylla-theodoro/}{\underline{taylla-theodoro}} 
+        \href{https://www.linkedin.com/in/taylla-theodoro/}{\underline{taylla-theodoro}} \quad
+        \faIcon{github}
+        \href{https://github.com/tayllatheodoro}{\underline{tayllatheodoro}}
     \end{minipage}
    \vspace{-0.2cm}
+
+% === EXPERIENCE ===
         \section{\mysidestyle Research and Work Experience}
         \textbf{\href{https://biohub.org/comp-imaging/people/}{Computational Imaging - Chan Zuckerberg Biohub SF}} \hfill \textsl{Aug 2024 -- present}  \\
-        \textit{R\&D Engineer} - Microscope automation and high-throughput analysis of dynamic live-cell imaging.
+        \textit{R\&D Engineer} \quad Microscope automation and high-throughput analysis of live-cell imaging.
         \begin{list2}
-            \item Built DynaTrack, a label-agnostic smart-tracking loop that runs phase reconstruction and virtual staining during acquisition to follow zebrafish neuromasts with gentle bright-field imaging; kept 73 of 75 neuromasts in view for up to 70.5\,h, versus $\sim$12\,h with classical imaging~\cite{theodoro2026dynatrack}.
-            \item Curated the shared 5D (3D+t, multi-channel) live-cell dataset behind DynaCLR and DynaCell: registration, virtual-staining-based nuclear segmentation, joint segmentation and tracking with Ultrack, and OME-Zarr organization of infected and drug-perturbed cells. This dataset underpins DynaCLR's infection-state classifier (F1 98.4)~\cite{pradeep2024contrastivelearningcellstate,hirata2025mapping,hirata-miyasaki2025embedding}.
-            \item Curated and registered the DynaCell benchmark for dynamic 3D virtual staining: paired label-free and fluorescence volumes of A549 cells across four organelles and three infection conditions, acquired on the Mantis microscope~\cite{kalinin2026dynacell}.
+            \item Built DynaTrack, which lets the microscope follow developing zebrafish neuromasts on its own. It reconstructs phase and virtually stains nuclei during acquisition, so tracking needs only gentle bright-field light. It kept 73 of 75 neuromasts in view for up to 70.5\,h; before, they drifted out of view after about 12\,h~\cite{theodoro2026dynatrack}.
+            \item Curated the live-cell dataset shared by DynaCLR and DynaCell: registered the volumes, segmented nuclei from virtual stains, tracked cells with Ultrack, and organized everything as OME-Zarr. Thousands of infected and drug-treated cells over 3D time-lapses. DynaCLR's infection classifier (F1 98.4) was trained on it~\cite{pradeep2024contrastivelearningcellstate,hirata2025mapping,hirata-miyasaki2025embedding}.
+            \item Curated and registered the DynaCell benchmark for dynamic 3D virtual staining: paired label-free and fluorescence volumes of A549 cells, four organelles, three infection conditions, imaged on the Mantis microscope~\cite{kalinin2026dynacell}.
         \end{list2}
         \vspace{-0.2cm}
 
         \textbf{\href{https://lids.ic.unicamp.br/people}{LIDS - Laboratory of Image Data Science, UNICAMP}} \hfill \textsl{Aug 2021 -- 2025}  \\
-        \textit{Graduate Researcher} - Automated detection of Early Contrast Enhancement (ECE), an MRI biomarker of pleural mesothelioma, in 4D (3D+t) DCE-MRI of the thorax.
+        \textit{Graduate Researcher} \quad Advisor: Prof.\ Alexandre Xavier Falc\~ao
         \begin{list2}
-            \item Built Meso-Regions, an open-source (GPL-3) five-stage pipeline: ANTs motion correction, image-foresting-transform pleural extraction, SLIC/DISF supervoxel partitioning, per-supervoxel enhancement curves, and rule-based ECE detection. Flags suspicious regions with no manual ROI placement; published at IEEE ISBI 2026~\cite{11515662,theodoro2025mesothelioma}.
-            \item Trained a PyTorch U-Net with diffusion-based data augmentation to segment the pleural region containing the tumor; co-authored a superpixel tutorial at SIBGRAPI and the iMig imaging review~\cite{9643120,ARMATO2024107832}.
+            \item Worked on finding Early Contrast Enhancement, an MRI sign of pleural mesothelioma, automatically in 4D (3D+t) DCE-MRI of the thorax.
+            \item Built Meso-Regions, an open-source pipeline that flags suspicious pleural regions with no manual ROI drawing: ANTs motion correction, pleural extraction with the image foresting transform, SLIC/DISF supervoxels, enhancement curves per supervoxel, and a rule-based detector. Presented at IEEE ISBI 2026~\cite{11515662,theodoro2025mesothelioma}.
+            \item Trained a PyTorch U-Net, with diffusion-based augmentation, to segment the pleural region that contains the tumor. Co-authored a superpixel tutorial at SIBGRAPI and the iMig imaging review~\cite{9643120,ARMATO2024107832}.
         \end{list2}
         \vspace{-0.2cm}
 
         \textbf{\href{https://www.predictmeso.com/members/}{PREDICT-Meso Network, University of Glasgow}} \hfill \textsl{Feb 2023 -- Jul 2023}\\
-        \textit{Visiting Researcher} - Built MISe, an interactive segmentation tool for 4D DCE-MRI, and used it to produce ground-truth pleural labels for the PREDICT-Meso cohort~\cite{mise2023}.
+        \textit{Visiting Researcher} \quad Built MISe, an interactive tool for segmenting 4D DCE-MRI, and used it to label the pleura across the PREDICT-Meso cohort~\cite{mise2023}.
         \vspace{-0.3cm}
 
         \textbf{Peapply \& Co.} \hfill \textsl{May 2021 -- Oct 2021}\\
-        \textit{Data Engineer} - Designed and built pipelines for collecting, storing, and analyzing data at scale in PySpark and SQL.
+        \textit{Data Engineer} \quad Built data pipelines in PySpark and SQL for collecting, storing, and analyzing data at scale.
         \vspace{-0.3cm}
 
         \textbf{\href{https://sites.google.com/view/labiii/members/current?authuser=0}{LIII - Lab of Image, Intelligence and Innovation}} \hfill \textsl{Jan 2020 -- Apr 2020}\\
-        \textit{Visiting Student Researcher} - CNN-based MRI spine segmentation in TensorFlow.
+        \textit{Visiting Student Researcher} \quad First deep learning project: CNN-based spine segmentation in MRI with TensorFlow.
         \vspace{-0.3cm}
 
         \textbf{\href{https://www.linkedin.com/company/la2i---laborat-rio-de-automa-o-e-instrumenta-o-inteligente/}{LAB2I - Automation and Intelligent Instrumentation Laboratory}}  \hfill \textsl{Aug 2017 -- Dec 2019}\\
-        \textit{Undergraduate Research Intern} - Built an embedded sensing system to monitor temperature and electric current in electrocoagulation water treatment~\cite{taylla2018,taylla2019}.
+        \textit{Undergraduate Research Intern} \quad Built an embedded system with sensors to monitor temperature and current in electrocoagulation water treatment~\cite{taylla2018,taylla2019}.
     \vspace{-0.2cm}
+
+% === EDUCATION ===
        \section{\mysidestyle Education}
         \textbf{University of Campinas (UNICAMP)} SP, BR  \hfill \textsl{Aug 2021 -- 2025}\\
            \textit{M.Sc. in Computer Science}, GPA 4.0/4.0
            \begin{list2}
             \item Thesis: Towards Automatic Detection of Pleural Mesothelioma Biomarker in 4D Dynamic MR Imaging~\cite{theodoro2025mesothelioma}
+            \item Advisor: Prof.\ Alexandre Xavier Falc\~ao
            \end{list2}
         \textbf{State University of Londrina (UEL)} PR, BR  \hfill \textsl{Apr 2016 -- Mar 2021}\\
            \textit{B.Sc. in Electrical Engineering}
            \begin{list2}
             \item Thesis: Study of Deep Learning and its Application to Medical Images
+            \item Advisor: Prof.\ Francisco Granziera Junior
            \end{list2}
-
      \vspace{-0.3cm}
+
+% === TRAINING ===
     \section{\mysidestyle Advanced Training}
-    
     \textbf{Marine Biological Laboratory (MBL), Woods Hole, MA, USA} \hfill \textsl{2025}\\
-    \textit{Analytical and Quantitative Light Microscopy}\\
-    Advanced intensive research training course focused on quantitative fluorescence microscopy, optical physics, image analysis, and computational methods for biological imaging.
-    \section{\mysidestyle Coursework}  
-      \textbf{Graduate} Digital Image Processing, Image Analysis, Parallelization and Optimization Algorithms for Machine Learning Graphs, Machine Learning and Pattern Recognition,  Deep Learning, Graph Algorithms.
+    \textit{Analytical and Quantitative Light Microscopy} \quad Intensive course on quantitative fluorescence microscopy, optics, and image analysis.
     \vspace{-0.3cm}
 
-      \textbf{Undergraduate} Digital Circuits, Analog and Digital Electronics, C programming, Embedded Systems, Digital Signal Processing, Modern Programming Languages, Communication Principles, Electronic Instrumentation, Microelectronics (ARM), Biomedical Engineering, VHDL.
+    \section{\mysidestyle Selected Coursework}
+      Digital Image Processing, Image Analysis, Machine Learning and Pattern Recognition, Deep Learning, Graph Algorithms, Digital Signal Processing, Embedded Systems.
+    \vspace{-0.3cm}
+
+% === TEACHING & VOLUNTEERING ===
+     \section{\mysidestyle Teaching and Volunteering}
+             Teaching Assistant, MC202 Data Structures and MC832 Computer Networks, UNICAMP \hfill \textsl{2022}\\
+             Techninas - Girls in Tech \hfill \textsl{2018 -- 2020}\\
+             IEEE Student Branch and Women in Engineering, UEL \hfill \textsl{2016 -- 2018}
        \vspace{-0.3cm}
 
-     \section{\mysidestyle Teaching Assistant}
-             MC202 - Data Structure \hfill \textsl{Aug 2022 - Nov 2022}\\
-             MC832 - Computer Network \hfill \textsl{Mar 2022 - Jun 2022}\\    
-       \vspace{-0.3cm} 
-     \section{\mysidestyle Volunteer Experience}
-        Techninas - Girls in Tech \hfill \textsl{2018 - 2020}\\
-        Student Branch IEEE UEL \hfill \textsl{2016 - 2018}\\
-        Women in Engineering IEEE UEL \hfill \textsl{2016 - 2018}\\
-    \vspace{-0.3cm}
-      \section{\mysidestyle Conference Presentation}
-   
-        \textbf{ISBI 2026 - IEEE International Symposium on Biomedical Imaging} Meso-Regions: 4D Segmentation of Early Contrast Enhancement Biomarkers for Pleural Mesothelioma Diagnosis\cite{11515662}.\\ 
-        \textbf{SPIE BiOS 2026} DynaTrack: label-agnostic smart tracking for mapping dynamics of organ development \cite{theodoro2026dynatrack}.\\
-        \textbf{iMig 2023 - 16th International Conference of the International Mesothelioma interest group} Development of an automated machine learning tool for reporting of MRI-Early Contrast Enhancement in Mesothelioma\cite{hirata2025mapping}. \\
-        \textbf{SIBGRAPI 2023 - 36th Conference on Graphics, Patterns and Images} Workshop - Superpixel segmentation: from theory to applications\cite{9643120}.\\
-    %        \section{\mysidestyle Research Interests}
-    % Computer vision, image processing, computational imaging, medical images, machine learning, embedded systems, the combination of computing and other areas.\\
- 
-     \vspace{0.2cm}
-     \section{\mysidestyle Publication}
+% === TALKS ===
+      \section{\mysidestyle Talks}
+        DynaTrack, SPIE BiOS 2026~\cite{theodoro2026dynatrack} \\
+        Meso-Regions, IEEE ISBI 2026~\cite{11515662} \\
+        Automated reporting of MRI early contrast enhancement in mesothelioma, iMig 2023 \\
+        Superpixel segmentation: from theory to applications, workshop at SIBGRAPI 2023~\cite{9643120}
+       \vspace{-0.3cm}
+
+% === SKILLS & INTERESTS ===
+     \section{\mysidestyle Skills and \\Interests}
+        \textbf{Languages} \quad Portuguese (native), English (fluent) \\
+        \textbf{Software} \quad Python (PyTorch, MONAI, Lightning, scikit-image, napari), OME-Zarr/iohub, Ultrack, ANTs, TensorFlow, PySpark, SQL, C for embedded systems, Git \\
+        \textbf{Microscopy} \quad Smart microscopy and acquisition control, quantitative phase imaging, virtual staining, light-sheet data
+        % \textbf{Interests} \quad TODO: add one or two personal interests here, then uncomment
+     \vspace{-0.1cm}
+
+% === PUBLICATIONS ===
+     \section{\mysidestyle Publications}
      \vspace{-0.35cm}
-        \renewcommand{\refname}{}
+        \renewcommand{\refname}{} 
         \renewcommand{\section}[1]{} % swallow the \section*{} emitted by thebibliography (it printed a stray "*")
         \bibliographystyle{ieeetr}
         \bibliography{publications}
 
-
-     
-        
-     
 \end{resume}   
 
- 
 \end{document}
