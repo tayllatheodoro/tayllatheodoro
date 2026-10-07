@@ -819,9 +819,9 @@
 \textwidth=154mm
 \itemsep=0cm
 \parsep=0cm
-\topmargin -12mm
+\topmargin -0.45in  % top of text at 0.55in
 %\textheight 265mm
-\textheight 275mm
+\textheight 9.7in   % was 275mm: overflowed the letter page
 
 \newenvironment{list1}{
   \begin{list}{\ding{113}}{%
